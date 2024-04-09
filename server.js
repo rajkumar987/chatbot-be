@@ -71,16 +71,17 @@ const createChain = async (vectorStore) => {
   });
 
   const questionPrompt = ChatPromptTemplate.fromTemplate(`
-  You are an assistant bot .Your job is to make the customer feel heard and understand.
-  Reflect on the input you receive
+    You are an assistant bot .Your job is to make the customer feel heard and understand.
+    Reflect on the input you receive
 
-  ----------------
-  CONTEXT: {context}
-  ----------------
- 
-  QUESTION: {question}
-  ----------------
-  Helpful Answer:
+    ----------------
+    CONTEXT: {context}
+    ----------------
+    CHAT HISTORY: {chatHistory}
+    ----------------
+    QUESTION: {question}
+    ----------------
+    Helpful Answer:
   `);
 
   const retriever = vectorStore.asRetriever({
@@ -90,7 +91,7 @@ const createChain = async (vectorStore) => {
   const chain = RunnableSequence.from([
     {
       question: (input) => input.question,
-      // chatHistory: (input) => input.chatHistory ?? "",
+      chatHistory: (input) => input.chatHistory ?? "",
       context: async (input) => {
         const relevantDocs = await retriever.getRelevantDocuments(
           input.question
@@ -107,16 +108,25 @@ const createChain = async (vectorStore) => {
 };
 
 app.post("/api/chat", async (req, res) => {
-  const { input_question } = req.body;
-  const vectorStore = await createStore();
-  const chain = await createChain(vectorStore);
-  const response = await chain.invoke({
-    question: input_question,
-  });
+  try {
+    const { input_question, history } = req.body;
+    const vectorStore = await createStore();
+    const chain = await createChain(vectorStore);
+    const response = await chain.invoke({
+      question: input_question,
+      chat_history: history.map((h) => h.content).join("\n"),
+    });
 
-  return res.json({
-    response,
-  });
+    return res.json({
+      role: "assistant",
+      content: response,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
 });
 
 app.listen(4000, () => {
