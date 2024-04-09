@@ -1,0 +1,4 @@
+node_modules
+old-data
+.env
+chain.js

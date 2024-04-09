@@ -1,0 +1,32 @@
+{
+  "name": "almochat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@huggingface/inference": "^2.6.6",
+    "@langchain/community": "^0.0.44",
+    "@langchain/google-genai": "^0.0.10",
+    "@langchain/google-vertexai-web": "^0.0.2",
+    "@langchain/mongodb": "^0.0.1",
+    "@langchain/openai": "^0.0.26",
+    "cors": "^2.8.5",
+    "d3-dsv": "^2.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "hnswlib-node": "^1.4.2",
+    "langchain": "^0.1.31",
+    "mongodb": "^6.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

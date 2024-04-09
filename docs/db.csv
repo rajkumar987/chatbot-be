@@ -1,0 +1,11 @@
+order_id,customer_name,order_date,order_time,order_items,order_status,estimated_delivery,payment_type,coins_used
+23599045,Rahul Sinha,02/04/2024,08:34,"Amoxil 500mg, Euthyrox 250mg",ready for dispatch,07/04/2024,Prepaid,Yes
+23599046,Priyanka Sharma,04/04/2024,04:52,"Deltasone, Cefixime, Imatinib",packaged,09/04/2024,Cash on Delivery,No
+23599047,Ankit Kejriwal,01/04/2024,23:10,"Permethrin, Piperazine, Premix Insulin 30:70 injection",out for delivery,06/04/2024,Prepaid,Yes
+23599048,Rohit Mehra,29/03/2024,03:45,"Chloramphenicol, Tinidazole",in transit,08/04/2024,Prepaid,No
+23599049,Raj Kishan,31/03/2024,13:56,"Xylometazoline, Flucytosine",delivered,06/04/2024,Cash on Delivery,No
+23599050,Shreya Verma,30/03/2024,12:34,"Acenocoumarol, Benzylpenicillin",out for delivery,06/04/2024,Prepaid,No
+23599051,Vishal Agrawal,02/04/2024,07:45,Lorazepam,ready for dispatch,08/04/2024,Cash on Delivery,Yes
+23599052,Varun Goyal,27/03/2024,06:34,"Misoprostol, EMLA cream",delivered,04/04/2024,Prepaid,No
+23599053,Atul Verma,03/04/2024,12:30,"Chlorambucil, Cetrizine",in transit,09/04/2024,Prepaid,Yes
+23599054,Akhil Sen,03/04/2024,21:47,"Atorvastatin, Clarithromycin, Loperamide",ready for dispatch,08/04/2024,Cash on Delivery,Yes
