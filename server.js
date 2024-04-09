@@ -21,6 +21,9 @@ import { formatDocumentsAsString } from "langchain/util/document";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
+import { config } from "dotenv";
+config();
+
 const app = express();
 app.use(express.json());
 
@@ -46,7 +49,7 @@ const createStore = async () => {
   const vectorStore = await HNSWLib.fromDocuments(
     splitDocs,
     new GoogleGenerativeAIEmbeddings({
-      apiKey: "AIzaSyBe8P7MbCS9BFUfhmiTwmoAio1PDrDwo3U",
+      apiKey: process.env.GOOGLE_API_KEY,
       modelName: "embedding-001",
       taskType: TaskType.RETRIEVAL_DOCUMENT,
     })
@@ -56,7 +59,7 @@ const createStore = async () => {
 
 const createChain = async (vectorStore) => {
   const model = new ChatGoogleGenerativeAI({
-    apiKey: "AIzaSyBe8P7MbCS9BFUfhmiTwmoAio1PDrDwo3U",
+    apiKey: process.env.GOOGLE_API_KEY,
     modelName: "gemini-pro",
     maxOutputTokens: 2048,
     safetySettings: [
