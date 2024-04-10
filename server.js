@@ -69,23 +69,24 @@ const createChain = async (vectorStore) => {
       },
     ],
   });
-
+  // You are an assistant bot .Your job is to make the customer feel heard and understand.
+  // Reflect on the input you receive
   const questionPrompt = ChatPromptTemplate.fromTemplate(`
-    You are an assistant bot .Your job is to make the customer feel heard and understand.
-    Reflect on the input you receive
-
+    You are an assistant bot dedicated to order-related inquiries.
+  
     ----------------
     CONTEXT: {context}
     ----------------
+    CUSTOMER INQUIRY: {question}
+    ----------------
     CHAT HISTORY: {chatHistory}
     ----------------
-    QUESTION: {question}
-    ----------------
-    Helpful Answer:
-  `);
+    Response:
+    `);
 
+  // Helpful Answer:
   const retriever = vectorStore.asRetriever({
-    k: 2,
+    k: 3,
   });
 
   const chain = RunnableSequence.from([
@@ -116,7 +117,10 @@ app.post("/api/chat", async (req, res) => {
       question: input_question,
       chat_history: history.map((h) => h.content).join("\n"),
     });
-
+    if (response.trim() === "") {
+      response =
+        "There was an error processing your request. Please try again after some time.";
+    }
     return res.json({
       role: "assistant",
       content: response,

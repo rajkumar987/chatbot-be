@@ -1,0 +1,9 @@
+Order number 23599071, placed by Neha Patel on 05/04/2024 at 14:23, containing Ibuprofen and Omeprazole, is currently in the 'processing' status. The estimated delivery date is 10/04/2024. The payment method is Credit Card and no coins were used.
+
+Order number 23599083, placed by Rahul Gupta on 07/04/2024 at 09:56, containing Metformin and Amlodipine, is currently in the 'out for delivery' status. The estimated delivery date is 12/04/2024. The payment method is Prepaid and coins were used.
+
+Order number 23599102, placed by Priya Singh on 10/04/2024 at 16:42, containing Paracetamol, Ciprofloxacin, and Diazepam, is currently in the 'delivered' status. The estimated delivery date was 15/04/2024. The payment method is Cash on Delivery and coins were used.
+
+Order number 23599114, placed by Rohan Sharma on 12/04/2024 at 11:18, containing Hydrochlorothiazide and Metoprolol, is currently in the 'cancelled' status. The payment method is Debit Card and no coins were used.
+
+Order number 23599129, placed by Nisha Verma on 15/04/2024 at 08:07, containing Sertraline, Escitalopram, and Fluoxetine, is currently in the 'in transit' status. The estimated delivery date is 20/04/2024. The payment method is Cash on Delivery and no coins were used.
