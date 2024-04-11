@@ -13,9 +13,9 @@ const PORT = process.env.PORT || 4000;
 
 app.post("/api/chat", async (req, res) => {
   try {
-    const { input_question, history } = req.body;
+    let { input_question, history } = req.body;
 
-    if (!input_question || !Array.isArray(history) || history.length === 0) {
+    if (!input_question || !history) {
       return res.status(400).json({
         message: "Missing input_question or history in the request body",
       });
@@ -25,7 +25,7 @@ app.post("/api/chat", async (req, res) => {
     const chain = await createChain(vectorStore);
     const response = await chain.invoke({
       question: input_question,
-      chat_history: history?.map((h) => h.content).join("\n"),
+      chat_history: history?.map((h) => h?.content)?.join("\n"),
     });
     if (response.trim() === "") {
       response =
